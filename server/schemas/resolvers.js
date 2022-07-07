@@ -26,10 +26,6 @@ const resolvers = {
           if (!correctPw) {
             throw new AuthenticationError('Incorrect credentials. Try Again!');
           }
-    
-          const token = signToken(user);
-          return { token, user };
-        },
         addUser: async (parent, args) => {
           if (context.user) {
             const updatedUser = await User.findOneAndUpdate(
